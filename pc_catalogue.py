@@ -130,8 +130,7 @@ def search_pc_product_codes():
 
             time.sleep(req_delay)
         time.sleep(series_cd)
-    dump_data(found_products, "pc_product_catalog.json")
-    
+    dump_data(found_products, "pc_product_catalogue.json")
     
 def main():
     search_pc_product_codes()

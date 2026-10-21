@@ -211,6 +211,8 @@ class Piececool:
     def __init__(self):
         return
 
+
+
 def get_manuals_dirpath(filename: str) -> str:
     normalised_fname: str = filename.replace(".pdf", "").strip()
     manuals_dirpath: str = os.path.join(os.getcwd(), "manuals")
@@ -224,14 +226,18 @@ def needs_download(filename: str, download_link: str) -> bool:
     manuals_dirpath: str = get_manuals_dirpath(filename)
     if filename not in os.listdir(input_dirpath): return True
     if filename not in os.listdir(manuals_dirpath): return True
-    
-def main():
+
+def get_input_files() -> list[str]:
     input_dirpath: str = os.path.join(os.getcwd(), "input")
     input_files: list[str] = [
-        file for file in os.listdir(input_dirpath) 
+        os.path.join(input_dirpath, file) for file in os.listdir(input_dirpath) 
         if file.endswith(".pdf") and 
         (file.startswith("ME") or file.startswith("PC") or file.startswith("UN"))
     ]
+    return input_files
+
+def main():
+    input_files: list[str] = get_input_files()
 
     for input_file in input_files:
         if input_file.startswith("ME"):

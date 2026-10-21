@@ -81,7 +81,7 @@ def get_product_catalogue() -> None:
             else:
                 product_catalog[category_name] = [details]
 
-    me_product_catalog_fpath: str = os.path.join(os.getcwd(), "me_product_catalog.json")
+    me_product_catalog_fpath: str = os.path.join(os.getcwd(), "me_product_catalogue.json")
     dump_data(product_catalog, me_product_catalog_fpath)
     return
 
